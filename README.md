@@ -1,2 +1,3 @@
-# H2OLog-Flutter
-Istinye University Student Projects.
+# flutter_app2
+
+A new Flutter project.
