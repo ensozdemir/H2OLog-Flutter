@@ -5,13 +5,16 @@ import 'package:flutter_app2/screens/loading_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
+import '../core/constant.dart';
+import '../widgets/bottom_menu.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 85, 186, 254),
+      backgroundColor: arkaplanrenkim, //Color.fromARGB(255, 85, 186, 254),
       // AppBar
       appBar: AppBar(
         title: const Text('Ana Sayfa'),
@@ -25,6 +28,7 @@ class HomeScreen extends StatelessWidget {
 
       // Drawer (Yan Menü)
       drawer: Drawer(
+        backgroundColor: arkaplanrenkim,
         child: Column(
           children: [
             // Drawer Header
@@ -114,60 +118,6 @@ class HomeScreen extends StatelessWidget {
 
       // Alt navigasyon çubuğu
       bottomNavigationBar: BottomMenu(),
-    );
-  }
-}
-
-class BottomMenu extends StatelessWidget {
-  const BottomMenu({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-    height: 70,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        IconButton(
-          onPressed: (){
-            context.go("/home");
-          },
-           icon: Icon(
-            CupertinoIcons.home
-          ),
-        ),
-    
-        IconButton(
-          onPressed: (){
-          context.go("/search");
-          },
-           icon: Icon(
-            CupertinoIcons.search
-          ),
-        ),
-    
-        IconButton(
-          onPressed: (){
-          context.go("/voice");
-          },
-           icon: Icon(
-            Icons.android
-          ),
-        ),
-    
-        IconButton(
-          onPressed: (){
-          context.go("/profile");
-          },
-           icon: Icon(
-            CupertinoIcons.person
-          ),
-        ),
-    
-      ],
-    ),
     );
   }
 }
