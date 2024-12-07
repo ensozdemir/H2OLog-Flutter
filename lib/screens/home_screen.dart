@@ -1,5 +1,7 @@
+import 'package:dotlottie_loader/dotlottie_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,13 +38,7 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    'Kullanıcı Adı',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                  ),
+                  
                 ],
               ),
             ),
@@ -71,7 +67,17 @@ class HomeScreen extends StatelessWidget {
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(16),
-              child: const Text('Ana Sayfa İçeriği'),
+              child: SizedBox(
+                 width: double.infinity,
+                 child: DotLottieLoader.fromAsset("assets/motions/waves.lottie",
+                      frameBuilder: (BuildContext ctx, DotLottie? dotlottie) {
+                    if (dotlottie != null) {
+                      return Lottie.memory(dotlottie.animations.values.single);
+                    } else {
+                      return Container();
+                    }
+                  }),
+               ),
             ),
           ),
         ],
@@ -82,15 +88,15 @@ class HomeScreen extends StatelessWidget {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.home),
-            label: 'Ana Sayfa',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.search),
-            label: 'Keşfet',
+            label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.person),
-            label: 'Profil',
+            label: '',
           ),
         ],
         onTap: (index) {
