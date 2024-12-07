@@ -1,6 +1,8 @@
 import 'package:dotlottie_loader/dotlottie_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_app2/screens/loading_screen.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -28,14 +30,14 @@ class HomeScreen extends StatelessWidget {
             // Drawer Header
             Container(
               height: 200,
-              color: Colors.blue,
+              //color: Colors.blue,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Icon(
                     CupertinoIcons.person_circle,
                     size: 80,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                   const SizedBox(height: 10),
                   
@@ -50,6 +52,33 @@ class HomeScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+
+            ListTile(
+              leading: const Icon(CupertinoIcons.search),
+              title: const Text('Geçmiş'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(CupertinoIcons.person),
+              title: const Text('profil'),
+              onTap: () {
+                context.go("/profile");
+              },
+            ),
+
+
+            ListTile(
+              leading: const Icon(CupertinoIcons.search),
+              title: const Text('istatistikler'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            
             ListTile(
               leading: const Icon(CupertinoIcons.settings),
               title: const Text('Ayarlar'),
@@ -84,25 +113,61 @@ class HomeScreen extends StatelessWidget {
       ),
 
       // Alt navigasyon çubuğu
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            label: '',
+      bottomNavigationBar: BottomMenu(),
+    );
+  }
+}
+
+class BottomMenu extends StatelessWidget {
+  const BottomMenu({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+    height: 70,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        IconButton(
+          onPressed: (){
+            context.go("/home");
+          },
+           icon: Icon(
+            CupertinoIcons.home
           ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.search),
-            label: '',
+        ),
+    
+        IconButton(
+          onPressed: (){
+          context.go("/search");
+          },
+           icon: Icon(
+            CupertinoIcons.search
           ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
-            label: '',
+        ),
+    
+        IconButton(
+          onPressed: (){
+          context.go("/voice");
+          },
+           icon: Icon(
+            Icons.android
           ),
-        ],
-        onTap: (index) {
-          // Navigasyon işlemleri buraya gelecek
-        },
-      ),
+        ),
+    
+        IconButton(
+          onPressed: (){
+          context.go("/profile");
+          },
+           icon: Icon(
+            CupertinoIcons.person
+          ),
+        ),
+    
+      ],
+    ),
     );
   }
 }
