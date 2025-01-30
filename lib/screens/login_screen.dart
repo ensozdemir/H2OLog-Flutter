@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_app2/core/constant.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,8 +13,39 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
+  TextEditingController epostayonetici =TextEditingController();
+  TextEditingController sifreyonetici =TextEditingController();
+
   girisyap() {
-    
+    if( epostayonetici.text.isEmpty || sifreyonetici.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Bilgilerinizi giriniz"),
+          //action: SnackBarAction(label: "Kapat", onPressed: () {}),
+         // margin: EdgeInsets.all(20),
+         behavior: SnackBarBehavior.floating,
+         backgroundColor: const Color.fromARGB(255, 184, 173, 82),
+         showCloseIcon: true,
+        ),
+        );
+    } else{
+      if(sifreyonetici.text.length < 8) {
+        ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("sifre en az 8 haneli olabilir"),
+          //action: SnackBarAction(label: "Kapat", onPressed: () {}),
+         // margin: EdgeInsets.all(20),
+         behavior: SnackBarBehavior.floating,
+         backgroundColor: const Color.fromARGB(255, 184, 173, 82),
+         showCloseIcon: true,
+        ),
+        );
+      } else{
+         context.go("/home");
+      }
+      
+    }
+
   }
 
   @override
@@ -30,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 //child: Text("Giris ekranım"),
               //),
               TextField(
-                
+                controller: epostayonetici,
                 decoration: InputDecoration(
                   hintText: "E-posta",
                   //helper: Text("E-postanızı girin"),
@@ -42,8 +74,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 //],
               ),
               SizedBox(height: 10),
-              TextField(
+              TextFormField(
                 obscureText: true,
+                controller: sifreyonetici,
                 decoration: InputDecoration(
 
                   hintText: "Sifre",
