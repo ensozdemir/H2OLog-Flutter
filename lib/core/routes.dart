@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app2/screens/login_screen.dart';
 import 'package:flutter_app2/screens/profile_screen.dart';
 import 'package:flutter_app2/screens/search_screen.dart';
 import 'package:flutter_app2/screens/voice_screen.dart';
@@ -18,6 +19,10 @@ final router = GoRouter(
     GoRoute(
       path: '/home',
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
       path: '/profile',
