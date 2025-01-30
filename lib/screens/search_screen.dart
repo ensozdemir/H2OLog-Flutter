@@ -8,7 +8,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: arkaplanrenkim,
+      //backgroundColor: colors["surface"],
       body: Center(
         child: Text("Arama Ekranim"),
       ),

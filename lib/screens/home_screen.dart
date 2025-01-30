@@ -14,9 +14,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: arkaplanrenkim, //Color.fromARGB(255, 85, 186, 254),
+      
       // AppBar
       appBar: AppBar(
+        backgroundColor: Colors.teal,
         title: const Text('Ana Sayfa'),
         actions: [
           IconButton(
@@ -28,7 +29,7 @@ class HomeScreen extends StatelessWidget {
 
       // Drawer (Yan Menü)
       drawer: Drawer(
-        backgroundColor: arkaplanrenkim,
+        backgroundColor: colors["surface"],
         child: Column(
           children: [
             // Drawer Header
