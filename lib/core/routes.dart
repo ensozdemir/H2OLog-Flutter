@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app2/screens/login_screen.dart';
 import 'package:flutter_app2/screens/profile_screen.dart';
+import 'package:flutter_app2/screens/register_creen.dart';
 import 'package:flutter_app2/screens/search_screen.dart';
 import 'package:flutter_app2/screens/voice_screen.dart';
 import 'package:go_router/go_router.dart';
@@ -23,6 +24,10 @@ final router = GoRouter(
     GoRoute(
       path: '/login',
       builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/register',
+      builder: (context, state) => const RegisterCreen(),
     ),
     GoRoute(
       path: '/profile',

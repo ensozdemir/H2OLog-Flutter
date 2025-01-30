@@ -11,6 +11,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  girisyap() {
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 //child: Text("Giris ekranım"),
               //),
               TextField(
+                
                 decoration: InputDecoration(
                   hintText: "E-posta",
                   //helper: Text("E-postanızı girin"),
@@ -47,11 +53,16 @@ class _LoginScreenState extends State<LoginScreen> {
                
               ),
               SizedBox(height: 15),
-              ElevatedButton(onPressed: () {
-                context.go("/home");
-              }, 
+              ElevatedButton(
+                onPressed: girisyap,
               child: const Text("Giris yap"),
               ),
+               SizedBox(height:15),
+              ElevatedButton(
+                onPressed: () {
+                context.pushReplacement("/register");
+              },
+               child: const Text("Kayit ol"),),
             ],
           ),
         ),
