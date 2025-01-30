@@ -56,9 +56,14 @@ lib/
 ├── widgets/     # Tekrar kullanılabilir arayüz öğeleri
 └── services/    # API servisleri
 ```
+## Demo Videosu
+https://github.com/user-attachments/assets/913602d5-9d88-4de9-b66f-7fb76adaa80c
 
 ## Ekran Görüntüleri
-[Uygulama ekran görüntüleri buraya eklenecek]
+![Image](https://github.com/user-attachments/assets/908a0cd4-a9b2-46db-96f0-f951b9637312)
+![Image](https://github.com/user-attachments/assets/43c2d86f-88ad-40a5-bf39-4605f6a8bfdf)
+![Image](https://github.com/user-attachments/assets/f578f31b-62f5-4ae0-9c8e-2ebd629c9d31)
+![Image](https://github.com/user-attachments/assets/b82f44f9-0361-4fc5-b1dd-8f608ec63bb1)
 
 ## Projeye Katkı Sağlama
 1. Projeyi forklayın
